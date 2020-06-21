@@ -3,6 +3,9 @@ class User < ApplicationRecord
 
   validates_presence_of :email
   validates_presence_of :password_confirmation, on: [:create]
-  validates_format_of :email, with: /.+@.+/
-  validates :password, length: {minimum: 6}, on: [:create]
+
+  validates_format_of :email, with: /.+@.+/, if: :email
+  validates :password, length: {minimum: 6}, on: [:create], if: :password
+  private
+
 end
