@@ -4,7 +4,7 @@ bundle install
 bundle exec rake app:update:bin
 ```
 
-#开启数据库
+# 开启数据库
 
 ```
 docker ps -a // 查找上次容器
