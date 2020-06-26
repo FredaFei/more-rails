@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   end
 
   def me
-    user_id = session[:current_user_id]
-    user = User.find user_id
-    render_resource user
+    render_resource current_user
   end
 
   def create_params
