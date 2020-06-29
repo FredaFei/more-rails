@@ -28,7 +28,6 @@ RSpec.describe User, type: :model do
   end
   it '创建时确认密码与密码不匹配' do
     user = User.create email: '1@qq.com', password: '123123', password_confirmation: '123456'
-    p user.errors
     expect(user.errors.details[:password_confirmation][0][:error]).to eq :confirmation
     expect(user.errors.details[:password_confirmation][0][:attribute]).to eq 'Password'
     expect(user.errors.details[:password_confirmation][0].length).to eq 2
