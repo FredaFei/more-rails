@@ -47,3 +47,10 @@ docker restart [container id] //重启[container id]容器
 docker rm [container id] //删除[container id]容器
 docker container prune //删除无用容器
 ```
+# 测试
+
+`bin/rspec`
+
+# 创建API文档
+
+`bin/rake docs:generate`
