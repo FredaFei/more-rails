@@ -17,6 +17,7 @@ gem 'puma', '~> 3.11'
 gem 'bcrypt', '~> 3.1.7'
 gem 'dotenv-rails'
 gem 'rb-readline', '~> 0.5.0', :require => false
+gem 'rspec_api_documentation', '6.1.0', git: 'git@github.com:FredaFei/rspec_api_documentation.git'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
