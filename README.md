@@ -54,3 +54,7 @@ docker container prune //删除无用容器
 # 创建API文档
 
 `bin/rake docs:generate`
+
+`./spec/acceptance`和`./spec/requests`
+作用：两个目录下的文件均用来测试controller
+差异：`acceptance`只测试成功的（成功才可创建文档），`requests`可测试失败的
