@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/me', to: 'users#me'
   delete '/sessions', to: 'sessions#destroy'
   resources :users
+  resources :records
   resources :sessions, only: [:create]
 end
 
