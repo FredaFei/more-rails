@@ -1,5 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Record, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it '创建时必有amount' do
+    record = Record.create category: 'outgoings', notes: '吃饭'
+    expect(record.errors.details[:amount][0][:error]).to eq :blank
+    expect(record.errors.details[:amount][0].length).to eq 1
+  end
+  it '创建时必有category' do
+    record = Record.create amount: 100000, notes: '吃饭'
+    expect(record.errors.details[:category][0][:error]).to eq :blank
+    expect(record.errors.details[:category][0].length).to eq 1
+  end
+
 end
