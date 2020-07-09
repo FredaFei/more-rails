@@ -11,5 +11,11 @@ RSpec.describe Record, type: :model do
     expect(record.errors.details[:category][0][:error]).to eq :blank
     expect(record.errors.details[:category][0].length).to eq 1
   end
+  it '创建时category只能是 outgoings | income' do
+    expect {
+      Record.create amount: 100000, category: 'out', notes: '吃饭'
+    }.to raise_error(ArgumentError)
+  end
+
 
 end
