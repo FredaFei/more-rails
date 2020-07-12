@@ -22,7 +22,9 @@ class ApplicationController < ActionController::API
       render json: { errors: resource.errors }, status: 422
     end
   end
-
+  def render_resources(resource)
+    render json: { resources: resource }
+  end
   def render_must_sign_in
     render status: :unauthorized
   end
