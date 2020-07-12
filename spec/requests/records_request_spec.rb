@@ -68,4 +68,24 @@ RSpec.describe "Records", type: :request do
       expect(response.status).to eq 404
     end
   end
+  context 'update' do
+    it '更新一个record失败' do
+      record = Record.create! amount: 10000, category: 'outgoings'
+      patch "/records/#{record.id}"
+      expect(response.status).to eq 401
+    end
+    it '更新一个record成功' do
+      sign_in
+      record = Record.create! amount: 10000, category: 'outgoings'
+      patch "/records/#{record.id}", params: { amount: 8800 }
+      expect(response.status).to eq 200
+      body = JSON.parse response.body
+      expect(body['resource']['amount']).to eq 8800
+    end
+    it '更新一个不存在的record' do
+      sign_in
+      patch "/records/999999999999", params: { amount: 8800 }
+      expect(response.status).to eq 404
+    end
+  end
 end
