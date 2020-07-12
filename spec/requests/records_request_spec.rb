@@ -34,4 +34,20 @@ RSpec.describe "Records", type: :request do
       expect(response.status).to eq 200
     end
   end
+  context 'get' do
+    it '获取record失败' do
+      get "/records"
+      expect(response.status).to eq 401
+    end
+    it '删除record成功' do
+      sign_in
+      (1...12).to_a.map do
+        Record.create! amount: 10000, category: 'outgoings'
+      end
+      get "/records"
+      expect(response.status).to eq 200
+      body = JSON.parse response.body
+      expect(body['resources'].length).to eq 10
+    end
+  end
 end
