@@ -5,6 +5,10 @@ class RecordsController < ApplicationController
     render_resources Record.page(params[:page])
   end
 
+  def show
+    render_resource Record.find params[:id]
+  end
+
   def create
     render_resource Record.create create_params
   end

@@ -34,7 +34,7 @@ RSpec.describe "Records", type: :request do
       expect(response.status).to eq 200
     end
   end
-  context 'get' do
+  context 'index' do
     it '获取record失败' do
       get "/records"
       expect(response.status).to eq 401
@@ -48,6 +48,24 @@ RSpec.describe "Records", type: :request do
       expect(response.status).to eq 200
       body = JSON.parse response.body
       expect(body['resources'].length).to eq 10
+    end
+  end
+  context 'get' do
+    it '获取一个record失败' do
+      record = Record.create! amount: 10000, category: 'outgoings'
+      get "/records/#{record.id}"
+      expect(response.status).to eq 401
+    end
+    it '获取一个record成功' do
+      sign_in
+      record = Record.create! amount: 10000, category: 'outgoings'
+      get "/records/#{record.id}"
+      expect(response.status).to eq 200
+    end
+    it '获取一个不存在的record' do
+      sign_in
+      get "/records/999999999999"
+      expect(response.status).to eq 404
     end
   end
 end
