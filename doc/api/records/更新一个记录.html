@@ -109,38 +109,75 @@ table th, table td {
       <h1>records API</h1>
 
       <div class="article">
-        <h2>获取一个记录</h2>
-        <h3>GET /records/:id</h3>
+        <h2>更新一个记录</h2>
+        <h3>PATCH /records/:id</h3>
 
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <span class="name">amount</span>
+                </td>
+                <td>
+                  <span class="description">金额</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">category</span>
+                </td>
+                <td>
+                  <span class="description">类型: 1 outgoings|2 income</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">notes</span>
+                </td>
+                <td>
+                  <span class="description">备注</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
             <pre class="request headers">Content-Type: application/json
-Cookie: _more_session_id=mDQbVL4iPQ%2FF%2F%2FRhE%2FiB0CdEtRd1lvCFrcKZo9nS9FTnaibGNpUIBvPeddwB4lNNnTjM1CDCRoQLfxU0VDx1B0%2BSgCr2OfFRIgclaGu9u35TRwVXCmo8CD6L1DnaekxU2N7HJvgPyn%2Fnam51YU9c9W39iLmTur6av0fJT5ds7GjSDD01gk0%2BP4QYqkkXdqmcwtkrMgqM8Ns%2BOopcNyYzzZYUKBuuvWkGZ3yuyuua2oncBK5nwgI31Q%3D%3D--dtH7JINeeNcqdQBT--lkRWDt0Xd%2B4KPLu7Sm%2BDFA%3D%3D</pre>
+Cookie: _more_session_id=Xi4vI%2B8SmNhPHxlf70Xq0CVhSYvW4c8WZ7%2Bg9skXMrnfFb8lFVnT2HG%2F0zXXlQ7ES3EyEceMdMnJrzYko2Vj7Mf0AKGxIbNa9YNrAjxHUzu3BWVCcaQwyqh62uAfP%2FPivpY4MQpxI8lT7AT%2FwvMz2UOaXwx8F9UrOZIfOKcYD3Zy8%2FoxNnp4uSNciKod0TNY%2BUflyrrh3TrfBElHSmjhd0nhKd%2FH56gO4ay5dFnbQRtaEtNDHsb5Mw%3D%3D--P%2FPyNsxC%2Fv%2FY2xqX--D43M0scCN3M4Uf%2B3twR1%2BQ%3D%3D</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /records/522</pre>
+          <pre class="request route highlight">PATCH /records/523</pre>
 
 
+            <h4>Body</h4>
+            <pre class="request body">{"amount":8800,"category":"outgoings","notes":"吃饭"}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-Set-Cookie: _more_session_id=H83gtlo3E2Oi07TQyRqj6UieKO5rTbgFdN1obccniEI8F7XmfxgmcsB2RMkUjWDiRNgf4Dy2lLayhfSTiqSwUrbaQrrNDyIJrya1wRRQkwcB7kB67iPjY0mSMT8q9m1lO8B4kpEhnkj6rTpJZovLNA0%2BbXGKBb8E1GpssfXuJSwoHAxwaJWfyJ%2BNWI6f7jIZwhC3bPSlPsmge2xrjDP7Rz%2FmNw81gOTWQ1zWJX74oQcrwUBROSDdWQ%3D%3D--n6%2BKbPqgfdOJEIip--r8If6ubtegzkHzotjA4Rlw%3D%3D; path=/; HttpOnly</pre>
+Set-Cookie: _more_session_id=lLzwPn85fOKM0iLthkrGhEp64570xP%2BBxSdFbDX8rXIhPVDKFhrHX0YsNrEV7cabi5wYkl5W3VeER3zJ1OmzIfhhy88yxxzIMPhWdG53zpNnqdvTG41R5n9Fqfv%2BtircfsG9swzkHk7gyk38onNlRO3SyRtsfLPNkz8YLvHSxscBb5lZ2rlzsL6IB%2BX4NdRYql8x3e1CBc7BnyAizoM%2BGSUQGVcS%2Bzg4Y7PuW4ygtGyRwqtvHzaDDw%3D%3D--UJpZWOW%2BuGoPuIxr--yE2pqjTuuvkoj%2FdqR2wNEg%3D%3D; path=/; HttpOnly</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;resource&quot;: {
-    &quot;id&quot;: 522,
-    &quot;amount&quot;: 10000,
+    &quot;id&quot;: 523,
+    &quot;amount&quot;: 8800,
     &quot;category&quot;: &quot;outgoings&quot;,
-    &quot;notes&quot;: null,
-    &quot;created_at&quot;: &quot;2020-07-12T03:19:49.580Z&quot;,
-    &quot;updated_at&quot;: &quot;2020-07-12T03:19:49.580Z&quot;
+    &quot;notes&quot;: &quot;吃饭&quot;,
+    &quot;created_at&quot;: &quot;2020-07-12T03:19:49.629Z&quot;,
+    &quot;updated_at&quot;: &quot;2020-07-12T03:19:49.636Z&quot;
   }
 }</pre>
       </div>
