@@ -29,12 +29,12 @@ RSpec.describe "Taggings", type: :request do
       body = JSON.parse response.body
       expect(body['errors']['record'][0]).to eq '记录不能为空'
     end
-    it '登录后，创建taggings tag_id' do
+    it '登录后，创建taggings必传 tag_id' do
       sign_in
       post '/taggings', params: { record_id: @record.id }
-      expect(response.status).to eq 200
+      expect(response.status).to eq 422
       body = JSON.parse response.body
-      expect(body['errors']['tag'][0]).to eq '标签名不能为空'
+      expect(body['errors']['tag'][0]).to eq '标签不能为空'
     end
   end
 

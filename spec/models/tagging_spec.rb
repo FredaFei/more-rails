@@ -4,6 +4,7 @@ RSpec.describe Tagging, type: :model do
   it '创建时必传record' do
     tag = Tag.create! name: 'test'
     tagging = Tagging.create tag: tag
+    p tagging
     expect(tagging.errors.details[:record][0][:error]).to eq :blank
     expect(tagging.errors.details[:record][0].length).to eq 1
   end
