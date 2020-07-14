@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tags API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tags API</h1>
+
+      <div class="article">
+        <h2>获取所有标签</h2>
+        <h3>GET /tags</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <span class="name">page</span>
+                </td>
+                <td>
+                  <span class="description">页码</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/json
+Cookie: _more_session_id=d6fRvFSfauX5p%2FLGA5F0I7pB19FkeQm8RezuzyGak56mdvCivUwQgE15uFMqzTuyI13dGdQtpXsqg6x9YRA%2FsfXdHNO%2B1fCIomJ29Y7rP7Rgg%2Ba0Fg7zl3jO%2FHOSmNU09pl0jrI6TRGYZ2UiePO2igbyHA1uO9LZM7Njp7axDUqwkljyWfgVWszDCN%2FNebqHDPUAfnqgGpwQGwmTrPMSc9U%2F6mnqQfz5NjAN9HB83VILaR86TwD6YQ%3D%3D--WJchea0zu%2F2xEPFr--LFDbsoa2gXHljNeDyOyC0Q%3D%3D</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /tags?page=1</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">page: 1</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+Set-Cookie: _more_session_id=r%2B9%2FVVLeC05dYsikmgrBk9aaFA%2BtyUrUcL%2F1gBHD0QOb2TAC904QQNu2d99ErBPjoaQw53Atp81YfgJ9soeMRIhbYXDOqEMM8DXK%2B3aYGOF7%2Bmc1PldbBlOLYT8wpjEp3Qnn2WXWEnjCXX7raiL0Vjee0J6sFhhKJp0M96QjEoG7n%2BktKEVXUkzaHTnsDMIrfXv8lFSAKAUlf5E3X%2FKG%2F1fTqw7IGNEMeB%2BcL6l35L9PQcKX%2F6rs3A%3D%3D--aaxrRwgOTIfPJJLI--l4UbiUc5cDSBDur7J%2BedCg%3D%3D; path=/; HttpOnly</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;resources&quot;: [
+    {
+      &quot;id&quot;: 797,
+      &quot;name&quot;: &quot;test1&quot;,
+      &quot;created_at&quot;: &quot;2020-07-14T15:11:11.125Z&quot;,
+      &quot;updated_at&quot;: &quot;2020-07-14T15:11:11.125Z&quot;
+    },
+    {
+      &quot;id&quot;: 798,
+      &quot;name&quot;: &quot;test2&quot;,
+      &quot;created_at&quot;: &quot;2020-07-14T15:11:11.129Z&quot;,
+      &quot;updated_at&quot;: &quot;2020-07-14T15:11:11.129Z&quot;
+    },
+    {
+      &quot;id&quot;: 799,
+      &quot;name&quot;: &quot;test3&quot;,
+      &quot;created_at&quot;: &quot;2020-07-14T15:11:11.132Z&quot;,
+      &quot;updated_at&quot;: &quot;2020-07-14T15:11:11.132Z&quot;
+    },
+    {
+      &quot;id&quot;: 800,
+      &quot;name&quot;: &quot;test4&quot;,
+      &quot;created_at&quot;: &quot;2020-07-14T15:11:11.134Z&quot;,
+      &quot;updated_at&quot;: &quot;2020-07-14T15:11:11.134Z&quot;
+    },
+    {
+      &quot;id&quot;: 801,
+      &quot;name&quot;: &quot;test5&quot;,
+      &quot;created_at&quot;: &quot;2020-07-14T15:11:11.137Z&quot;,
+      &quot;updated_at&quot;: &quot;2020-07-14T15:11:11.137Z&quot;
+    },
+    {
+      &quot;id&quot;: 802,
+      &quot;name&quot;: &quot;test6&quot;,
+      &quot;created_at&quot;: &quot;2020-07-14T15:11:11.140Z&quot;,
+      &quot;updated_at&quot;: &quot;2020-07-14T15:11:11.140Z&quot;
+    },
+    {
+      &quot;id&quot;: 803,
+      &quot;name&quot;: &quot;test7&quot;,
+      &quot;created_at&quot;: &quot;2020-07-14T15:11:11.142Z&quot;,
+      &quot;updated_at&quot;: &quot;2020-07-14T15:11:11.142Z&quot;
+    },
+    {
+      &quot;id&quot;: 804,
+      &quot;name&quot;: &quot;test8&quot;,
+      &quot;created_at&quot;: &quot;2020-07-14T15:11:11.145Z&quot;,
+      &quot;updated_at&quot;: &quot;2020-07-14T15:11:11.145Z&quot;
+    },
+    {
+      &quot;id&quot;: 805,
+      &quot;name&quot;: &quot;test9&quot;,
+      &quot;created_at&quot;: &quot;2020-07-14T15:11:11.148Z&quot;,
+      &quot;updated_at&quot;: &quot;2020-07-14T15:11:11.148Z&quot;
+    },
+    {
+      &quot;id&quot;: 806,
+      &quot;name&quot;: &quot;test10&quot;,
+      &quot;created_at&quot;: &quot;2020-07-14T15:11:11.150Z&quot;,
+      &quot;updated_at&quot;: &quot;2020-07-14T15:11:11.150Z&quot;
+    }
+  ]
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

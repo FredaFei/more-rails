@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>records API</title>
+    <title>Tags API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>records API</h1>
+      <h1>Tags API</h1>
 
       <div class="article">
-        <h2>更新一个记录</h2>
-        <h3>PATCH /records/:id</h3>
+        <h2>创建标签</h2>
+        <h3>POST /tags</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -122,27 +122,11 @@ table th, table td {
             </thead>
             <tbody>
               <tr>
-                <td>
-                    <span class="name">amount</span>
+                <td class="required">
+                    <span class="name">name</span>
                 </td>
                 <td>
-                  <span class="description">金额</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">category</span>
-                </td>
-                <td>
-                  <span class="description">类型: 1 outgoings|2 income</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">notes</span>
-                </td>
-                <td>
-                  <span class="description">备注</span>
+                  <span class="description">标签名</span>
                 </td>
               </tr>
             </tbody>
@@ -153,31 +137,29 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Content-Type: application/json
-Cookie: _more_session_id=ILtFiM%2BO46KS51vYifwg3H4CN6AKnWrcJaOfzb3sesOgwsQzCoCfWvmrjbASkoXswR1IWhwnMYBoEQ%2F7UI0fJvp1PTbUuHbKApdSzSoiZ6o4zSWsR%2FIYmFAwR%2BZlXu54yyh%2BGnUP8zEkW2yquGdzPaCNpsRlq9nkv88xG8%2FVtyhFgqDfT%2F%2Bpc5ZsiVBuxDAlTxkWXuR0Orc0FLf8%2FMS68kpKfeURTEOv6b2tX4SwO%2BnN%2FIMMD5zsaw%3D%3D--JNbTNNsKKoez8jZn--3JUUB0ZiN2Rt6fxkRgNFUg%3D%3D</pre>
+Cookie: _more_session_id=f0cwKnCeboSxf%2BHs%2FgJlV3yu3%2Bq4M4EZEeEG%2FE3Yrrisg9qxbb7B3hFMz3t15jBsSgYSGLC2luU%2FHD%2F1ID9DRror6skQyVuRZ60nVQzNRNHWVmrLvrJhc5P9%2B8MMGmPYhZcO0c4g9iwmkJY5IklCT3Cjj8cLgSnW283f%2FmKje%2FeWUkRBl%2BmIw4oCIDiRYxEOmLjAfsF99Z5yTk4SJ%2Fea%2BdPg84QRVRyzkLh3ceJR05KnAHuvaJiZbA%3D%3D--KEla%2BQ5lnCA0zYOO--g8g959hRs0Emu6vUK4P0Jg%3D%3D</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PATCH /records/1195</pre>
+          <pre class="request route highlight">POST /tags</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"amount":8800,"category":"outgoings","notes":"吃饭"}</pre>
+            <pre class="request body">{"name":"test"}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-Set-Cookie: _more_session_id=XwZ%2FY09sGOo6g4WSKSVlZTBhqcxXJotJe9D9bWO%2FhAqfjY9up01qTdaNxTPKA%2FJomvrTsQovpfEaciz0RMbTI3n1sAxz3cKhis9u5oLEuenHZv%2BnrxV4%2BQnX7YVwKmKgA1QmsQgM7ef00IwRhDX0XXZNWKk9AZvyKYca3o4aNhVDpadBfzZSKOGFIA8zAZgEqSAjdFLA1HcqUZTYu2sxP%2FJBFR2dIUadUxcGbdmN6H%2F9RfZYxHdTkw%3D%3D--aV0PP2ar5hgCnISR--EfdqfDwXZtDyU2ZvWuFAcA%3D%3D; path=/; HttpOnly</pre>
+Set-Cookie: _more_session_id=ZmLcZnu9MhL5R2jfiBjIR918XZJdaPW2OGoDmt6L2RGxHqhd5Tgscv11pl1pcexS4g2rlmgdrTu7L9cH8wBHyqR6jOSEOPhellPW%2FMebuPogzAVRLGxia8FluMil%2Ba1OLaLbxW%2BwSchTezaaJ7FmmC817ERbo6F9i%2FCxC3TcbuW6RshwiUNyMeej1vKsfU1zDnsQGglvBCZyCF96nBCiqOpfLtb9Ztl%2BzHpsOoQPQldn%2FV4vIkZDeg%3D%3D--FGj41h3vtEcWpSVk--0t63aJ4R8auE8R9pRa5NGg%3D%3D; path=/; HttpOnly</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;resource&quot;: {
-    &quot;id&quot;: 1195,
-    &quot;amount&quot;: 8800,
-    &quot;category&quot;: &quot;outgoings&quot;,
-    &quot;notes&quot;: &quot;吃饭&quot;,
-    &quot;created_at&quot;: &quot;2020-07-14T15:11:51.512Z&quot;,
-    &quot;updated_at&quot;: &quot;2020-07-14T15:11:51.518Z&quot;
+    &quot;id&quot;: 994,
+    &quot;name&quot;: &quot;test&quot;,
+    &quot;created_at&quot;: &quot;2020-07-14T15:11:51.742Z&quot;,
+    &quot;updated_at&quot;: &quot;2020-07-14T15:11:51.742Z&quot;
   }
 }</pre>
       </div>

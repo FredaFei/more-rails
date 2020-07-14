@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>records API</title>
+    <title>Taggings API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>records API</h1>
+      <h1>Taggings API</h1>
 
       <div class="article">
-        <h2>更新一个记录</h2>
-        <h3>PATCH /records/:id</h3>
+        <h2>创建标记</h2>
+        <h3>POST /taggings</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -122,27 +122,19 @@ table th, table td {
             </thead>
             <tbody>
               <tr>
-                <td>
-                    <span class="name">amount</span>
+                <td class="required">
+                    <span class="name">tag_id</span>
                 </td>
                 <td>
-                  <span class="description">金额</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">category</span>
-                </td>
-                <td>
-                  <span class="description">类型: 1 outgoings|2 income</span>
+                  <span class="description">标签ID</span>
                 </td>
               </tr>
               <tr>
-                <td>
-                    <span class="name">notes</span>
+                <td class="required">
+                    <span class="name">record_id</span>
                 </td>
                 <td>
-                  <span class="description">备注</span>
+                  <span class="description">记录ID</span>
                 </td>
               </tr>
             </tbody>
@@ -153,31 +145,30 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Content-Type: application/json
-Cookie: _more_session_id=ILtFiM%2BO46KS51vYifwg3H4CN6AKnWrcJaOfzb3sesOgwsQzCoCfWvmrjbASkoXswR1IWhwnMYBoEQ%2F7UI0fJvp1PTbUuHbKApdSzSoiZ6o4zSWsR%2FIYmFAwR%2BZlXu54yyh%2BGnUP8zEkW2yquGdzPaCNpsRlq9nkv88xG8%2FVtyhFgqDfT%2F%2Bpc5ZsiVBuxDAlTxkWXuR0Orc0FLf8%2FMS68kpKfeURTEOv6b2tX4SwO%2BnN%2FIMMD5zsaw%3D%3D--JNbTNNsKKoez8jZn--3JUUB0ZiN2Rt6fxkRgNFUg%3D%3D</pre>
+Cookie: _more_session_id=4Hcuxk7gtphBBVj6cNbpGF%2F6X8fTWWo2Ky%2FSsGtFfuku4h4CbDT8lEdiUb%2Bc5f0y1NjIxvcd9mcFznavh4pWnJYIE7XlrIqtACiCgXLlgUv%2Bv%2FcSXk31AP1jewz93VsBmO2p7oHeoXJw898nD%2BqDu%2Bs%2F0ImlKAdwsw8Din9QNHstOGjQfN9Hj9y13RZ3Txcgk7HzIy%2Bo4SMTWSRPe%2FpiWrYqd7prv7jQllK1vySftZQuSvuczX%2BDyQ%3D%3D--c%2BmHJxGa2NI8oDdn--UC0iqxxtCufAMetLtLoXHg%3D%3D</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PATCH /records/1195</pre>
+          <pre class="request route highlight">POST /taggings</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"amount":8800,"category":"outgoings","notes":"吃饭"}</pre>
+            <pre class="request body">{"tag_id":980,"record_id":1196}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-Set-Cookie: _more_session_id=XwZ%2FY09sGOo6g4WSKSVlZTBhqcxXJotJe9D9bWO%2FhAqfjY9up01qTdaNxTPKA%2FJomvrTsQovpfEaciz0RMbTI3n1sAxz3cKhis9u5oLEuenHZv%2BnrxV4%2BQnX7YVwKmKgA1QmsQgM7ef00IwRhDX0XXZNWKk9AZvyKYca3o4aNhVDpadBfzZSKOGFIA8zAZgEqSAjdFLA1HcqUZTYu2sxP%2FJBFR2dIUadUxcGbdmN6H%2F9RfZYxHdTkw%3D%3D--aV0PP2ar5hgCnISR--EfdqfDwXZtDyU2ZvWuFAcA%3D%3D; path=/; HttpOnly</pre>
+Set-Cookie: _more_session_id=hR%2BktSYgTpBP9D%2FgZQmXGPlRiwellDid%2BUBlVEgQ7dqpTNv%2FT984IgtbH4inuQ93IIaa1Ww05OjBQKHxMZc6Fqfgizaz7i1Nnu1PefSMvnVi5%2F9Zkbbfd1p8jywkPaRI5KTKCNKGlqjy1v4AJx6xXB1muBuGIdTRLJBUra%2FAkB%2BQv6OXgnlQ8Q%2BO8FnnrfEkbwfdU%2BQmrH6H8Rw8IRwj%2FE1CB7ekg5Mxt47Hjw49mt19H57mLoVK0Q%3D%3D--QLgYwIZed19fZDaW--PCrtlLdwqmzWuypQX8bqjw%3D%3D; path=/; HttpOnly</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;resource&quot;: {
-    &quot;id&quot;: 1195,
-    &quot;amount&quot;: 8800,
-    &quot;category&quot;: &quot;outgoings&quot;,
-    &quot;notes&quot;: &quot;吃饭&quot;,
-    &quot;created_at&quot;: &quot;2020-07-14T15:11:51.512Z&quot;,
-    &quot;updated_at&quot;: &quot;2020-07-14T15:11:51.518Z&quot;
+    &quot;id&quot;: 650,
+    &quot;tag_id&quot;: 980,
+    &quot;record_id&quot;: 1196,
+    &quot;created_at&quot;: &quot;2020-07-14T15:11:51.590Z&quot;,
+    &quot;updated_at&quot;: &quot;2020-07-14T15:11:51.590Z&quot;
   }
 }</pre>
       </div>
