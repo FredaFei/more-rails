@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :users
   resources :records
   resources :tags
+  resources :taggings
   resources :sessions, only: [:create]
 end
 
