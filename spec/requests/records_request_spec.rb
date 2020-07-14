@@ -6,14 +6,14 @@ RSpec.describe "Records", type: :request do
       post '/records', params: { amount: 10000, category: 'outgoings', notes: '吃饭' }
       expect(response.status).to eq 401
     end
-    it '创建record' do
+    it '登录后，创建record' do
       sign_in
       post '/records', params: { amount: 10000, category: 'outgoings', notes: '吃饭' }
       expect(response.status).to eq 200
       body = JSON.parse response.body
       expect(body['resource']['id']).to be
     end
-    it '创建record失败' do
+    it '登录后未传金额时，创建record失败' do
       sign_in
       post '/records', params: { category: 'outgoings', notes: '吃饭' }
       expect(response.status).to eq 422
@@ -22,12 +22,12 @@ RSpec.describe "Records", type: :request do
     end
   end
   context 'destroy' do
-    it '删除record失败' do
+    it '未登录时，删除record失败' do
       record = Record.create! amount: 10000, category: 'outgoings'
       delete "/records/#{record.id}"
       expect(response.status).to eq 401
     end
-    it '删除record成功' do
+    it '登录后，删除record成功' do
       sign_in
       record = Record.create! amount: 10000, category: 'outgoings'
       delete "/records/#{record.id}"
@@ -35,11 +35,11 @@ RSpec.describe "Records", type: :request do
     end
   end
   context 'index' do
-    it '获取record失败' do
+    it '未登录时，获取records失败' do
       get "/records"
       expect(response.status).to eq 401
     end
-    it '删除record成功' do
+    it '登录后，获取records成功' do
       sign_in
       (1...12).to_a.map do
         Record.create! amount: 10000, category: 'outgoings'
@@ -51,30 +51,30 @@ RSpec.describe "Records", type: :request do
     end
   end
   context 'get' do
-    it '获取一个record失败' do
+    it '未登录时，获取一个record失败' do
       record = Record.create! amount: 10000, category: 'outgoings'
       get "/records/#{record.id}"
       expect(response.status).to eq 401
     end
-    it '获取一个record成功' do
+    it '登录后，获取一个record成功' do
       sign_in
       record = Record.create! amount: 10000, category: 'outgoings'
       get "/records/#{record.id}"
       expect(response.status).to eq 200
     end
-    it '获取一个不存在的record' do
+    it '登录后，获取一个不存在的record' do
       sign_in
       get "/records/999999999999"
       expect(response.status).to eq 404
     end
   end
   context 'update' do
-    it '更新一个record失败' do
+    it '未登录时，更新一个record失败' do
       record = Record.create! amount: 10000, category: 'outgoings'
       patch "/records/#{record.id}"
       expect(response.status).to eq 401
     end
-    it '更新一个record成功' do
+    it '登录后，更新一个record成功' do
       sign_in
       record = Record.create! amount: 10000, category: 'outgoings'
       patch "/records/#{record.id}", params: { amount: 8800 }
@@ -82,7 +82,7 @@ RSpec.describe "Records", type: :request do
       body = JSON.parse response.body
       expect(body['resource']['amount']).to eq 8800
     end
-    it '更新一个不存在的record' do
+    it '登录后，更新一个不存在的record' do
       sign_in
       patch "/records/999999999999", params: { amount: 8800 }
       expect(response.status).to eq 404
