@@ -8,13 +8,15 @@ class RecordsController < ApplicationController
   def show
     render_resource Record.find params[:id]
   end
+
   def update
     record = Record.find params[:id]
     record.update create_params
     render_resource record
   end
+
   def create
-    render_resource Record.create create_params
+    render_resource Record.create create_params.merge user: current_user
   end
 
   def destroy
