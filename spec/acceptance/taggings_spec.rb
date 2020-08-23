@@ -2,20 +2,22 @@ require 'rails_helper'
 require 'rspec_api_documentation/dsl'
 
 resource "Taggings" do
-  let(:tag) { Tag.create! name: 'test' }
+  let(:user) { create :user }
+  let(:tag) { create :tag }
   let(:tag_id) { tag.id }
-  let(:record) { Record.create! amount: 10000, category: 'outgoings' }
+  let(:record) { create :record }
   let(:record_id) { record.id }
-  let(:tagging) { Tagging.create! tag: tag, record: record }
+  let(:tagging) { create :tagging, tag: tag, record: record }
   let(:id) { tagging.id }
   let(:taggings) {
     (1..10).to_a.map do |n|
-      Tagging.create! record: record, tag: Tag.create!(name: "test#{n}")
+      create :tagging, record: record, tag: (create :tag, name: "test#{n}")
     end
   }
   let(:create_taggings) {
     tagging
     taggings
+    nil
   }
   post "/taggings" do
     parameter :tag_id, '标签ID', type: :number, required: true
