@@ -3,7 +3,7 @@ require 'rspec_api_documentation/dsl'
 
 resource "Tags" do
   let(:name) { 'test' }
-  let(:tag) { Tag.create! name: name }
+  let(:tag) { create :tag, name: name }
   let(:id) { tag.id }
 
   post "/tags" do
@@ -26,10 +26,10 @@ resource "Tags" do
   get "/tags" do
     parameter :page, '页码', type: :integer
     let(:page) { 1 }
-    (1...12).to_a.map do |n|
-      Tag.create! name: "test#{n}"
-    end
     example "获取所有标签" do
+      (1...12).to_a.map do |n|
+        create :tag, name: "test#{n}"
+      end
       sign_in
       do_request
       expect(status).to eq 200

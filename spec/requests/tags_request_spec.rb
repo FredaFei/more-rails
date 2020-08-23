@@ -18,13 +18,13 @@ RSpec.describe "Tags", type: :request do
 
   context 'destroy' do
     it '未登录时，删除tag失败' do
-      tag = Tag.create! name: 'test'
+      tag = create :tag
       delete "/tags/#{tag.id}"
       expect(response.status).to eq 401
     end
     it '登录后，删除tag成功' do
       sign_in
-      tag = Tag.create! name: 'test'
+      tag = create :tag
       delete "/tags/#{tag.id}"
       expect(response.status).to eq 200
     end
@@ -38,7 +38,7 @@ RSpec.describe "Tags", type: :request do
     it '登录后，获取tags成功' do
       sign_in
       (1...12).to_a.map do |n|
-        Tag.create! name: "test#{n}"
+        create :tag, name: "test#{n}"
       end
       get "/tags"
       expect(response.status).to eq 200
@@ -49,13 +49,13 @@ RSpec.describe "Tags", type: :request do
 
   context 'get' do
     it '未登录时，获取一个tag失败' do
-      tag = Tag.create! name: 'outgoings'
+      tag = create :tag
       get "/tags/#{tag.id}"
       expect(response.status).to eq 401
     end
     it '登录后，获取一个tag成功' do
       sign_in
-      tag = Tag.create! name: 'outgoings'
+      tag = create :tag
       get "/tags/#{tag.id}"
       expect(response.status).to eq 200
     end
@@ -68,13 +68,13 @@ RSpec.describe "Tags", type: :request do
 
   context 'update' do
     it '未登录时，更新一个tag失败' do
-      tag = Tag.create! name: 'outgoings'
+      tag = create :tag
       patch "/tags/#{tag.id}"
       expect(response.status).to eq 401
     end
     it '登录后，更新一个tag成功' do
       sign_in
-      tag = Tag.create! name: 'outgoings'
+      tag = create :tag
       patch "/tags/#{tag.id}", params: { name: 'out' }
       expect(response.status).to eq 200
       body = JSON.parse response.body
