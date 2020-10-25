@@ -2,12 +2,12 @@ class Session
   include ActiveModel::Model
   attr_accessor :email, :password, :user
 
-  validates :email, presence: true
-  validate :check_email, if: :email
+  validates_presence_of :email
   validates :password, presence: true
+  validates_format_of :email, with: /.+@.+/, if: Proc.new { |u| u.email.present? }
+  validate :check_email, if: Proc.new { |u| u.email.present? and /.+@.+/.match(u.email) }
 
-  validates_format_of :email, with: /.+@.+/, if: :email
-  validates :password, length: {minimum: 6}, if: :password
+  validates :password, length: { minimum: 6 }, if: :password
   validate :email_password_match, if: Proc.new { |s| s.email.present? and s.password.present? }
 
 
