@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tags API</title>
+    <title>session API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,40 +106,76 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Tags API</h1>
+      <h1>session API</h1>
 
       <div class="article">
-        <h2>获取一个标签</h2>
-        <h3>GET /tags/:id</h3>
+        <h2>用户（登录）</h2>
+        <h3>POST /sessions</h3>
 
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">email</span>
+                </td>
+                <td>
+                  <span class="description">邮箱</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">password</span>
+                </td>
+                <td>
+                  <span class="description">密码</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
             <pre class="request headers">Content-Type: application/json
-Cookie: _more_session_id=CmRa4HageysQLU2z9WvWEDYvxRL2NeEtDn7aZWNMPTq7czPNjUJTew3%2FOnDbVlLLsR32zSCjoDUbqGyiau7JcyZju8v%2FgE75UJpOY5oxdT4ZQYljyCPeyZhaMxwLgJp7s118QFx7pU2WWTUqHGeHZdqP1TSIagXuzaNWHjn%2BpQ6LhT7fxlEJOgFkA584%2FzcXFZzSecsQKoD78yO7nHYNO7ncyF%2Fuije93MwrXnloPKr7RlX%2BF1p2NA%3D%3D--xLdTbgnFN9WIk9n3--Bs4vHLcDuEfltK5aW6YjCQ%3D%3D</pre>
+Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /tags/9977</pre>
+          <pre class="request route highlight">POST /sessions</pre>
 
 
+            <h4>Body</h4>
+            <pre class="request body">{"email":"145456@qq.com","password":"123456"}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-Set-Cookie: _more_session_id=j%2Bes6tSt1NYHvRH8QV%2FgF7ACzTH3QX%2BBu9D6J%2FdE43wFgusW1S8iISMfd6OkdbJAFj3AsDGlUqCotKIBQRd6OPD59JX7d6f%2F3iX86fUBpuuMcnrQzt%2Fx6Gutwp2dk2sO%2BEQRzuEItkaqjZHf9VaZfuI3wEn8KqyqBoMC2EVruCcqeIhRrO20W4iCCTdhiYPsbnnoOA4bydyFmiNPijkyFx6F%2BKV8viYmJWIcUSpzJ6d%2FJVlQTarWAw%3D%3D--wViINFkb%2F3JKArWu--TfpXQxi2UJm3KcUpd6GTrw%3D%3D; path=/; HttpOnly</pre>
+Set-Cookie: _more_session_id=JNRymONvlIYOe86igip%2FzhwcZguBbV2COw8z%2FYZTGsFPWCwMpyP0naNIfKLKVzretvFLX%2B%2B8w9Awq7azJ%2FfNBq%2BVAfart%2F7hb%2Bn02qk3NX4nAeS3cl44M8PrFmEMYpN66MgiwGoLNe6S6qYAXnwkG%2FPh7SOBpyJRwarDKqfUCymW%2BQp%2BUiQ5TRQOP%2FzHwA8vshMch5I7z8%2BLeg1jMS0e%2FyzjPJ9NOg4D8gpOocPNwU9Y8ncGjHXvHw%3D%3D--U%2FxZKRvrVuhbD0XX--3bjeXwJQdCVzqwlOZ487CA%3D%3D; path=/; HttpOnly</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;resource&quot;: {
-    &quot;id&quot;: 9977,
-    &quot;name&quot;: &quot;test&quot;,
-    &quot;created_at&quot;: &quot;2020-10-25T13:58:29.059Z&quot;,
-    &quot;updated_at&quot;: &quot;2020-10-25T13:58:29.059Z&quot;,
-    &quot;user_id&quot;: 22435
+    &quot;email&quot;: &quot;145456@qq.com&quot;,
+    &quot;password&quot;: &quot;123456&quot;,
+    &quot;validation_context&quot;: null,
+    &quot;errors&quot;: {
+    },
+    &quot;user&quot;: {
+      &quot;id&quot;: 22418,
+      &quot;email&quot;: &quot;145456@qq.com&quot;,
+      &quot;password_digest&quot;: &quot;$2a$04$dI8LgiLo.EVMZRXp2BZNL.rtKS/AlVH7pe7sZd8.JYwJRgIv/6V/q&quot;,
+      &quot;created_at&quot;: &quot;2020-10-25T13:58:28.864Z&quot;,
+      &quot;updated_at&quot;: &quot;2020-10-25T13:58:28.864Z&quot;
+    }
   }
 }</pre>
       </div>

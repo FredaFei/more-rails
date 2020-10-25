@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tags API</title>
+    <title>session API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Tags API</h1>
+      <h1>session API</h1>
 
       <div class="article">
-        <h2>删除标签</h2>
-        <h3>DELETE /tags/:id</h3>
+        <h2>退出登录</h2>
+        <h3>DELETE /sessions</h3>
 
 
 
@@ -118,10 +118,10 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Content-Type: application/json
-Cookie: _more_session_id=szg%2F5LGQ5pfY19KIDBDF2RjAJxfFUKaYoVKS31fGzN94g6XvJHrgkYpEetz6coeR1El2Wv21qcpPWsMn5bGcHVC3m1II7%2F8puP6QgXoGK2hgZaj4tOVhzeXBbkMgkV90Ukl2gGhhK%2FFU3bVpRRieLyo0HigZ7vUWDNJDO5m3i3oPdT9ZW0KRZd9ziC8kI%2FE2l%2FlcEMLsRupz4rGtFuM4qgevZberspJtwuvXT7%2BotQmQujr41OIlCg%3D%3D--w%2B7RQW%2F3Ql2M4EnM--n%2BfqRr8fUtabObTItfDoQg%3D%3D</pre>
+Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE /tags/9965</pre>
+          <pre class="request route highlight">DELETE /sessions</pre>
 
 
 
@@ -129,7 +129,7 @@ Cookie: _more_session_id=szg%2F5LGQ5pfY19KIDBDF2RjAJxfFUKaYoVKS31fGzN94g6XvJHrgk
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json
-Set-Cookie: _more_session_id=LzzkaJDaalYhUX4qpUy04rAzX4F8Z7zeUOQuyhKGThPowhk71TF%2F%2BtkG9fvRzWCQam2NLXoo6CepRWOLjia7bGJ8Gp58kMxlbXOjIw2ivglF4SQ00O7qQBHJQH6NXNdoVFQnexTQ%2F6JKJ8Qj0y7F1c70Jd8tcvLdbhWjUxf0j8qJ7Ej4mQ%2BK%2B%2FlkfFbN%2FeZqeKWHGLcH8LX04WgNBSc1qEgJoxl09yOXFvXUzF8rMGHUfa4mB8rZjg%3D%3D--LM2TONVlINTbVwB6--xH3On%2BdQSt9jhaXNvztcAQ%3D%3D; path=/; HttpOnly</pre>
+Set-Cookie: _more_session_id=AJVNqBRPNcGI4sIXH9FQRoiN85NSJrC63d3FySzBCGIyF1Ks1CDN0CD%2FbKmdnb50bata2yepKYXQAFm0dK%2BPXI%2FzgF4DlMxOnfR8LGQsKOxbqbjHmwX%2FWbvzXQVswO7Pg7zIOxwiwXjicbisbXLii7NY5WFodJM4%2BpQ%2FnIo8q0G%2B8g3YVyxHx40%2FgdyaZWYdeMblIRHesNc%3D--5p0Bo5egCMoIO%2Bmy--OVubvIJGlNcboCnY10LkuQ%3D%3D; path=/; HttpOnly</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
       </div>
