@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:FredaFei/rspec_api_documentation.git
+  remote: git://github.com/FredaFei/rspec_api_documentation.git
   revision: 0cb052952a343aa31f0064d80ba468f6d1c387f1
   specs:
     rspec_api_documentation (6.1.0)
